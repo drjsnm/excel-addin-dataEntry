@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="true"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>676D5E8E-15DA-4D0A-BE8C-357DADBBA27A</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Your Company Name</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Data Entry Add-In" />
+  <Description DefaultValue="A simple data entry add-in for Excel." />
+  <IconUrl DefaultValue="https://raw.githubusercontent.com/drjsnm/excel-addin-dataEntry/main/entryicon.png" />
+<HighResolutionIconUrl DefaultValue="https://raw.githubusercontent.com/drjsnm/excel-addin-dataEntry/main/entryicon.png" />
+  <SupportUrl DefaultValue="https://example.com/support" />
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://github.com/drjsnm/excel-addin-dataEntry" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+</OfficeApp>
