@@ -1,19 +1,109 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Id>676D5E8E-15DA-4D0A-BE8C-357DADBBA27A</Id>
-  <Version>1.0.0.0</Version>
-  <ProviderName>Your Company Name</ProviderName>
-  <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Data Entry Add-In" />
-  <Description DefaultValue="A simple data entry add-in for Excel." />
-  <IconUrl DefaultValue="https://raw.githubusercontent.com/drjsnm/excel-addin-dataEntry/main/entryicon.png" />
-  <HighResolutionIconUrl DefaultValue="https://raw.githubusercontent.com/drjsnm/excel-addin-dataEntry/main/entryicon.png" />
-  <SupportUrl DefaultValue="https://example.com/support" />
-  <Hosts>
-    <Host Name="Workbook" />
-  </Hosts>
-  <DefaultSettings>
-    <SourceLocation DefaultValue="https://github.com/drjsnm/excel-addin-dataEntry" />
-  </DefaultSettings>
-  <Permissions>ReadWriteDocument</Permissions>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created: ce44715c-8c4e-446b-879c-ea9ebe0f09c8 -->
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="TaskPaneApp">
+
+	<!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
+
+	<Id>b6411749-146a-428e-a6a6-1c0b7d3c140b</Id>
+	<Version>1.0.0.0</Version>
+	<ProviderName>SONAM.D</ProviderName>
+	<DefaultLocale>en-US</DefaultLocale>
+	<DisplayName DefaultValue="Dashboard" />
+	<Description DefaultValue="Dashboard for Data Entry" />
+	<IconUrl DefaultValue="http://localhost:3000/Images/Button32x32.png" />
+	<SupportUrl DefaultValue="http://www.contoso.com" />
+	<AppDomains>
+		<AppDomain>localhost</AppDomain>
+	</AppDomains>
+
+	<!-- End Basic Settings. -->
+
+	<!-- Begin TaskPane Mode integration. This section is used if there are no VersionOverrides or if the Office client version does not support add-in commands. -->
+
+	<Hosts>
+		<Host Name="Workbook" />
+	</Hosts>
+	<DefaultSettings>
+		<SourceLocation DefaultValue="http://localhost:3000/Home.html" />
+	</DefaultSettings>
+
+	<!-- End TaskPane Mode integration. -->
+
+	<Permissions>ReadWriteDocument</Permissions>
+
+	<!-- Begin Add-in Commands Mode integration. -->
+
+	<VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+
+		<Hosts>
+			<Host xsi:type="Workbook">
+				<DesktopFormFactor>
+					<GetStarted>
+						<Title resid="Contoso.GetStarted.Title" />
+						<Description resid="Contoso.GetStarted.Description" />
+						<LearnMoreUrl resid="Contoso.GetStarted.LearnMoreUrl" />
+					</GetStarted>
+					<FunctionFile resid="Contoso.DesktopFunctionFile.Url" />
+					<ExtensionPoint xsi:type="PrimaryCommandSurface">
+						<OfficeTab id="TabHome">
+							<Group id="Contoso.Group1">
+								<Label resid="Contoso.Group1Label" />
+								<Icon>
+									<bt:Image size="16" resid="Contoso.tpicon_16x16" />
+									<bt:Image size="32" resid="Contoso.tpicon_32x32" />
+									<bt:Image size="80" resid="Contoso.tpicon_80x80" />
+								</Icon>
+								<Control xsi:type="Button" id="Contoso.TaskpaneButton">
+									<Label resid="Contoso.TaskpaneButton.Label" />
+									<Supertip>
+										<Title resid="Contoso.TaskpaneButton.Label" />
+										<Description resid="Contoso.TaskpaneButton.Tooltip" />
+									</Supertip>
+									<Icon>
+										<bt:Image size="16" resid="Contoso.tpicon_16x16" />
+										<bt:Image size="32" resid="Contoso.tpicon_32x32" />
+										<bt:Image size="80" resid="Contoso.tpicon_80x80" />
+									</Icon>
+									<Action xsi:type="ShowTaskpane">
+										<TaskpaneId>ButtonId1</TaskpaneId>
+										<SourceLocation resid="Contoso.Taskpane.Url" />
+									</Action>
+								</Control>
+							</Group>
+						</OfficeTab>
+					</ExtensionPoint>
+				</DesktopFormFactor>
+			</Host>
+		</Hosts>
+
+		<Resources>
+			<bt:Images>
+				<bt:Image id="Contoso.tpicon_16x16" DefaultValue="http://localhost:3000/Images/Button16x16.png" />
+				<bt:Image id="Contoso.tpicon_32x32" DefaultValue="http://localhost:3000/Images/Button32x32.png" />
+				<bt:Image id="Contoso.tpicon_80x80" DefaultValue="http://localhost:3000/Images/Button80x80.png" />
+			</bt:Images>
+			<bt:Urls>
+				<bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="http://localhost:3000/Functions/FunctionFile.html" />
+				<bt:Url id="Contoso.Taskpane.Url" DefaultValue="http://localhost:3000/Home.html" />
+				<bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+			</bt:Urls>
+			<bt:ShortStrings>
+				<bt:String id="Contoso.TaskpaneButton.Label" DefaultValue="Show Taskpane" />
+				<bt:String id="Contoso.Group1Label" DefaultValue="Commands Group" />
+				<bt:String id="Contoso.GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
+			</bt:ShortStrings>
+			<bt:LongStrings>
+				<bt:String id="Contoso.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
+				<bt:String id="Contoso.GetStarted.Description" DefaultValue="Your sample add-in loaded successfully. Go to the HOME tab and click the 'Show Taskpane' button to get started." />
+			</bt:LongStrings>
+		</Resources>
+	</VersionOverrides>
+
+	<!-- End Add-in Commands Mode integration. -->
+
 </OfficeApp>
