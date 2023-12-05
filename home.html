@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Excel Add-In with Commands Sample</title>
+
+    <script src="Scripts/jquery-3.6.0.js" type="text/javascript"></script>
+    <script src="Scripts/MessageBanner.js" type="text/javascript"></script>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+
+    <!-- Your other scripts and stylesheets -->
+
+    <script src="Home.js" type="text/javascript"></script>
+    <link href="Home.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/Button.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/MessageBanner.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.0/css/fabric.min.css">
+
+</head>
+
+<body>
+    <h2 style="font-size: 16px; font: bold; color: #808080">Data Entry Form</h2>
+    <div class="container">
+        <div class="form-container">
+            <form id="data-entry-form">
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required><br><br>
+
+                <label for="activities">Activities/Objectives:</label>
+                <textarea id="activities" name="activities" rows="3" required style="resize: none"></textarea><br><br>
+
+                <label for="target">Target:</label>
+                <input type="text" id="target" name="target" required><br><br>
+
+                <label for="achievement">Achievement:</label>
+                <input type="text" id="achievement" name="achievement" required><br><br>
+
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline" required><br><br>
+
+                <label for="submitted-on">Submitted on:</label>
+                <input type="date" id="submitted-on" name="submitted-on" required><br><br>
+
+                <label for="remarks">Remarks:</label>
+                <textarea id="remarks" name="remarks" rows="3" style="resize: none"></textarea><br><br>
+
+                <input type="button" value="Add Record" onclick="addRecord()">
+                <input type="button" value="Search" onclick="searchRecords()">
+                <input type="button" value="Delete" onclick="deleteRecord()">
+                <input type="button" value="Update" onclick="updateRecord()">
+                <input type="button" value="Exit" onclick="exitForm()">
+            </form>
+        </div>
+
+        <div class="image-container">
+            <img src="Images/imgnppf.jpg" alt="Image">
+            <p class="vision-text" style="font-size: 16px;">OUR VISION</p>
+            <p class="vision-text" style="font-size: 16px;">"A premier organization which secures the retirement lives of members through effective income security."</p>
+        </div>
+
+        <div id="copyright">
+            <p>&copy; 2023 SONAM.D</p>
+        </div>
+    </div>
+</body>
+</html>
